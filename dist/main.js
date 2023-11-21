@@ -1,0 +1,2 @@
+(()=>{"use strict";console.log("connected"),alert("lets Go")})();
+//# sourceMappingURL=data:application/json;charset=utf-8;base64,eyJ2ZXJzaW9uIjozLCJmaWxlIjoibWFpbi5qcyIsIm1hcHBpbmdzIjoibUJBQ0lBLFFBQVFDLElBQUksYUFDWkMsTUFBTSxVIiwic291cmNlcyI6WyJ3ZWJwYWNrOi8vb2Rpbi10b2RvbGlzdC8uL3NyYy9tb2R1bGUuanMiXSwic291cmNlc0NvbnRlbnQiOlsiZXhwb3J0IGZ1bmN0aW9uIHN0YXJ0TW9kdWxlKCkge1xuICAgIGNvbnNvbGUubG9nKFwiY29ubmVjdGVkXCIpO1xuICAgIGFsZXJ0KFwibGV0cyBHb1wiKTtcbn0iXSwibmFtZXMiOlsiY29uc29sZSIsImxvZyIsImFsZXJ0Il0sInNvdXJjZVJvb3QiOiIifQ==
