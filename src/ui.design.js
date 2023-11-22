@@ -1,3 +1,5 @@
+import { toDoList,projectsList } from "./index.js";
+
 function start() {
     const content = document.querySelector('#content');
     content.classList.add('content');
@@ -8,16 +10,69 @@ function start() {
         content.appendChild(div);
     }
 
+    const title = document.createElement('h2');
+    title.textContent = "TO DO TRACKER";
+    const wrap = document.createElement('div');
+    wrap.classList.add('wrap-flex');
+
+    title.classList.add('project-title');
+    const createProject = document.createElement('button');
+    createProject.classList.add('add-project');
+    createProject.textContent = 'ADD PROJECTS';
+
+    const inputBox = document.createElement('input');
+    inputBox.setAttribute('type','text');
+    inputBox.classList.add('project-input');
+    const inputBtn = document.createElement('button');
+    inputBtn.textContent = 'Submit';
+    inputBtn.classList.add('project-btn');
     
+    
+    createProject.addEventListener('click',() => {
+        inputBox.classList.toggle('opacity');
+        inputBtn.classList.toggle('opacity');
+    });
+    
+    const card1 = document.querySelector('.card-1');
+    card1.appendChild(title);
+    wrap.appendChild(createProject);
+    wrap.appendChild(inputBox);
+    wrap.appendChild(inputBtn);
+    card1.appendChild(wrap);
+    
+    
+    createProjectList();
+    
+    inputBtn.addEventListener('click',() => {
+        const category = inputBox.value;
+        toDoList.addCategory(category);
+        projectsList.push(category)
+        createProjectList();
+        inputBox.value = '';
+        
+    })
+    
+    
+    function createProjectList() {
+        const wrapper = document.createElement('div');
+        wrapper.classList.add('wrapper');
+        const para = document.createElement('p');
+        para.textContent = 'Projects';
+
+        wrapper.innerHTML = '';
+        const unOrderedList = document.createElement('ul');
+        unOrderedList.classList.add('project-list')
+        for(let i=0;i<projectsList.length;i++) {
+            const listItem = document.createElement('li');
+            listItem.textContent = projectsList[i];
+            unOrderedList.appendChild(listItem)
+        }
+        wrapper.appendChild(para)
+        wrapper.appendChild(unOrderedList);
+        card1.appendChild(wrapper);
+        
+    }
 }
 
-const title = document.createElement('h2');
-title.classList.add('project-title');
-
-const unOrderedList = document.createElement('ul');
-const listItem = document.createElement('li');
-
-const createProject = document.createElement('button');
-createProject.classList.add('add-project');
 
 export {start};

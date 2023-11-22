@@ -2,15 +2,33 @@ export function startModule() {
     
 }
 
-export function createObject(title,due,priority,checkBox) {
-    return {
-        title,
-        dueDate : due,
-        priority,
-        checkBox
+export class ToDoList {
+    constructor() {
+      this.projects = {};
     }
-}
+  
+    addCategory(category) {
+        if (!this.projects[category]) {
+            this.projects[category] = [];
+        }
+    }
+    
+    addProject(category,title,priority,dueDate,isCompleted) {
+      // Create the category array if it doesn't exist
+      if (!this.projects[category]) {
+        this.projects[category] = [];
+      } 
+      const newProject = {
+        title,
+        priority,
+        dueDate,
+        isCompleted,
+      };
+  
+      this.projects[category].push(newProject);
+    }
 
-export function pushTodoObject(arr,myObj) {
-    arr.push(myObj);
+    returnProjects() {
+        return this.projects;
+    }
 }

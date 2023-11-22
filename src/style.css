@@ -9,10 +9,31 @@
     width: auto;
     background-color: aqua;
     display: grid;
-    grid-template-columns: minmax(400px,1fr) minmax(800px,1fr) minmax(500px,1fr);
+    grid-template-columns: 400px minmax(800px,1fr) minmax(500px,1fr);
 }
 
-.card-1,
-.card-3 {
+.card-1 {
     background-color: white;
+    display: grid;
+    grid-template-rows: 100px 100px 1fr;
+}
+.card-1 > * {
+    margin: 20px;
+}
+.wrap-flex {
+    display: flex;
+    gap: 20px;
+    flex-direction: column;
+    justify-content: center;
+    align-items: start;
+}
+
+.project-btn,
+.project-input {
+    width: 150px;
+    opacity: 0;
+}
+
+.opacity {
+    opacity: 1;
 }
