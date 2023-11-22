@@ -1,0 +1,18 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.content {
+    height: 100vh;
+    width: auto;
+    background-color: aqua;
+    display: grid;
+    grid-template-columns: minmax(400px,1fr) minmax(800px,1fr) minmax(500px,1fr);
+}
+
+.card-1,
+.card-3 {
+    background-color: white;
+}

@@ -1,4 +1,16 @@
 export function startModule() {
-    console.log("connected");
-    alert("lets Go");
+    
+}
+
+export function createObject(title,due,priority,checkBox) {
+    return {
+        title,
+        dueDate : due,
+        priority,
+        checkBox
+    }
+}
+
+export function pushTodoObject(arr,myObj) {
+    arr.push(myObj);
 }
