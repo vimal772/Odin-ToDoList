@@ -1,30 +1,41 @@
 import { toDoList } from "./index.js";
 
+const heading = document.createElement('h1');
+const wrap = document.createElement('div');
+wrap.classList.add('card2-wrap');
 
 export function getTitle(title) {
     const card2 = document.querySelector('.card-2');
-    const heading = document.createElement('h1');
     heading.textContent = `${title} To-Do List`;
     card2.appendChild(heading);
-    // console.log(title);
-    console.log(toDoList.projects[title][0].title);
+    
     getProperty(title)
 }
 
 function getProperty(currentObj) {
     //need to add condition and loop for extra object
-    const title = toDoList.projects[currentObj][0].title;
-    const priority = toDoList.projects[currentObj][0].priority;
-    const dueDate = toDoList.projects[currentObj][0].dueDate;    
-    const iscompleted = toDoList.projects[currentObj][0].isCompleted;
-    showProperty(title,priority,dueDate,iscompleted);
-    console.log(title,priority,dueDate,iscompleted);
+    let length = toDoList.projects[currentObj].length;
+    while(wrap.hasChildNodes()){
+        wrap.removeChild(wrap.firstChild);
+    }
+
+    for(let i=0;i<length;i++){
+
+        const title = toDoList.projects[currentObj][i].title;
+        const priority = toDoList.projects[currentObj][i].priority;
+        const dueDate = toDoList.projects[currentObj][i].dueDate;    
+        const iscompleted = toDoList.projects[currentObj][i].isCompleted;
+        showProperty(title,priority,dueDate,iscompleted);
+        console.log(title,priority,dueDate,iscompleted);
+    }
+
 }
 
 function showProperty(title,priority,dueDate,isCompleted) {
     const card2 = document.querySelector('.card-2');
 
     const div = document.createElement('div');
+    div.classList.add('wrap-div');
     const h2 = document.createElement('h2');
     h2.textContent = title;
     const para = document.createElement('p');
@@ -39,5 +50,6 @@ function showProperty(title,priority,dueDate,isCompleted) {
     div.appendChild(date);
     div.appendChild(hasCompleted);
 
-    card2.appendChild(div)
+    wrap.appendChild(div);
+    card2.appendChild(wrap);
 }

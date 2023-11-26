@@ -10,6 +10,12 @@ toDoList.addProject('weekly','porn','low','now','false');
 toDoList.addProject('monthly','fap','low','now','false');
 toDoList.addProject('Drink Water','hydrate','high','now','completed');
 toDoList.addProject('Drink Water','head water','medium','today','not completed');
+toDoList.addProject('Drink Water','refill','low','today','completed');
+toDoList.addProject('Drink Water','refill','low','today','completed');
+toDoList.addProject('Drink Water','refill','low','today','completed');
+toDoList.addProject('Drink Water','refill','low','today','completed');
+toDoList.addProject('Drink Water','refill','low','today','completed');
+toDoList.addProject('Drink Water','refill','low','today','completed');
 
 export const projectsList = Object.keys(toDoList.projects) 
 console.log(projectsList);

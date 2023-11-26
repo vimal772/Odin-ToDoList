@@ -8,7 +8,7 @@
     height: 100vh;
     width: auto;
     display: grid;
-    grid-template-columns: 400px minmax(800px,1fr) minmax(500px,1fr);
+    grid-template-columns: 400px minmax(800px,1fr) 500px;
 }
 
 .card-1 {
@@ -50,4 +50,22 @@
 
 .active {
     background-color: rgba(121, 120, 120,0.4);
+}
+
+.card2-wrap {
+    padding: 1rem;
+    display: grid;
+    grid-template-columns: 1fr;
+}
+
+.wrap-div {
+    display: grid;
+    grid-template-columns: repeat(4,1fr);
+    align-items: center;
+    justify-items: center;
+    border: 1px solid;
+}
+
+.content > * {
+    border: 1px solid;
 }
