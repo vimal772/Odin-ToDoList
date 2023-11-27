@@ -1,6 +1,8 @@
 import './style.css';
 import { start } from './ui.design.js';
 import { ToDoList } from "./module.js";
+import { createCard3 } from "./card3.js";
+
 
 
 export const toDoList = new ToDoList();
@@ -23,5 +25,5 @@ console.log(projectsList);
 
 start();
 // createCard();
-
+createCard3();
 console.log(toDoList.projects.daily[0].title);
