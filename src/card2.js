@@ -12,7 +12,8 @@ export function getTitle(title) {
     getProperty(title)
 }
 
-function getProperty(currentObj) {
+export function getProperty(currentObj) {
+    // console.log(currentObj);
     //need to add condition and loop for extra object
     let length = toDoList.projects[currentObj].length;
     while(wrap.hasChildNodes()){
@@ -26,7 +27,7 @@ function getProperty(currentObj) {
         const dueDate = toDoList.projects[currentObj][i].dueDate;    
         const iscompleted = toDoList.projects[currentObj][i].isCompleted;
         showProperty(title,priority,dueDate,iscompleted);
-        console.log(title,priority,dueDate,iscompleted);
+        // console.log(title,priority,dueDate,iscompleted);
     }
 
 }

@@ -1,8 +1,17 @@
+import { toDoList } from "./index.js";
+import { getProperty } from "./card2.js";
+
 export function createCard3() {
     const card3 = document.querySelector('.card-3');
     
     const div1 = document.createElement('div');
     const div2 = document.createElement('div');
+
+    div1.classList.add('form-hidden');
+
+    const heading = document.createElement('h2');
+    heading.textContent = 'Add New Task to the ToDo List';
+    div1.appendChild(heading);
 
     const form = document.createElement('form');
     form.id = 'taskForm';
@@ -90,11 +99,9 @@ export function createCard3() {
 
     // Create submit button
     const submitButton = document.createElement('input');
+    submitButton.classList.add('task-submitBtn')
     submitButton.type = 'button';
     submitButton.value = 'Submit';
-    submitButton.onclick = function() {
-      submitForm();
-    };
     form.appendChild(submitButton);
 
     // Append the form to the body of the document
@@ -102,9 +109,54 @@ export function createCard3() {
 
 
     const btn = document.createElement('button');
+    btn.classList.add('card3-btn')
     btn.textContent = 'Add New ToDo';
     div2.appendChild(btn);
 
     card3.appendChild(div1);
     card3.appendChild(div2);
+
+    showForm()
+    addTask()
+}
+
+function showForm() {
+    const btn = document.querySelector('.card3-btn')
+    btn.addEventListener('click',()=> {
+        const div1 = document.querySelector('.form-hidden');
+        div1.classList.remove('form-hidden');
+    })
+}
+
+function addTask() {
+    const submitButton = document.querySelector('.task-submitBtn');
+    submitButton.addEventListener('click',(event)=> {
+        event.preventDefault();
+        getTaskValues();
+    })
+}
+
+function getTaskValues() {
+    const title = document.querySelector('#title').value;
+    const priority = document.querySelector('#priority').value;
+    const status = document.querySelector('#status').value;
+    const dueDate = document.querySelector('#dueDate').value;
+    console.log(title,priority,status,dueDate);
+    validateForm(title,priority,status,dueDate);
+}
+
+function validateForm(title,priority,status,dueDate) {
+    // const validateArr = [title, priority, status, dueDate].every(arg => arg !== ''
+    // console.log(title,priority,status,dueDate);
+    if(title.trim() === ''){
+        alert('enter the title');
+        return;
+    }
+    alert('ok');
+    const category = document.querySelector('.active').textContent;
+
+    toDoList.addProject(category,title,priority,dueDate,status);
+    getProperty(category);
+
+
 }

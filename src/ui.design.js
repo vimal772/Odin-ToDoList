@@ -51,14 +51,19 @@ function start() {
     inputBtn.addEventListener('click',() => {
         const category = inputBox.value;
         toDoList.addCategory(category);
-        projectsList.push(category)
-        createProjectList();
+        if(!projectsList.includes(category)){
+            projectsList.push(category)
+        }
+        createProjectList(category);
         inputBox.value = '';
         
     })
+
+    // const li = document.querySelector('.project-items');
+    // li.classList.add('active');
     
     
-    function createProjectList() {
+    function createProjectList(category) {
         while(wrapper.hasChildNodes()){
             wrapper.removeChild(wrapper.firstChild);
         }
@@ -67,6 +72,10 @@ function start() {
         for(let i=0;i<projectsList.length;i++) {
             const listItem = document.createElement('li');
             listItem.textContent = projectsList[i];
+            if(projectsList[i] === category){
+                listItem.classList.add('active');
+                getTitle(category)
+            }
             listItem.classList.add('project-items')
             unOrderedList.appendChild(listItem);
         }
