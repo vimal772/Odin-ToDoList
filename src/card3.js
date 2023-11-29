@@ -1,5 +1,6 @@
 import { toDoList } from "./index.js";
 import { getProperty } from "./card2.js";
+import { pushData } from './localeStorage.js'
 
 export function createCard3() {
     const card3 = document.querySelector('.card-3');
@@ -8,6 +9,8 @@ export function createCard3() {
     const div2 = document.createElement('div');
 
     div1.classList.add('form-hidden');
+    div1.classList.add('todo-form');
+    div2.classList.add('show-form');
 
     const heading = document.createElement('h2');
     heading.textContent = 'Add New Task to the ToDo List';
@@ -123,7 +126,7 @@ export function createCard3() {
 function showForm() {
     const btn = document.querySelector('.card3-btn')
     btn.addEventListener('click',()=> {
-        const div1 = document.querySelector('.form-hidden');
+        const div1 = document.querySelector('.todo-form');
         div1.classList.remove('form-hidden');
     })
 }
@@ -141,7 +144,6 @@ function getTaskValues() {
     const priority = document.querySelector('#priority').value;
     const status = document.querySelector('#status').value;
     const dueDate = document.querySelector('#dueDate').value;
-    console.log(title,priority,status,dueDate);
     validateForm(title,priority,status,dueDate);
 }
 
@@ -152,11 +154,11 @@ function validateForm(title,priority,status,dueDate) {
         alert('enter the title');
         return;
     }
-    alert('ok');
-    const category = document.querySelector('.active').textContent;
 
+    const category = document.querySelector('.active').textContent;
+    console.log(category,title,priority,dueDate,status);
     toDoList.addProject(category,title,priority,dueDate,status);
     getProperty(category);
 
-
+    pushData(category);
 }

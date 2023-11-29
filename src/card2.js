@@ -41,6 +41,15 @@ function showProperty(title,priority,dueDate,isCompleted) {
     h2.textContent = title;
     const para = document.createElement('p');
     para.textContent = priority;
+
+    if(priority === 'low'){
+        para.style.color = '#FFD700';
+    }else if(priority === 'medium'){
+        para.style.color = '#FFA500';
+    }else {
+        para.style.color = '#FF4500';
+    }
+
     const date = document.createElement('p');
     date.textContent = dueDate;
     const hasCompleted = document.createElement('p');
@@ -53,4 +62,5 @@ function showProperty(title,priority,dueDate,isCompleted) {
 
     wrap.appendChild(div);
     card2.appendChild(wrap);
+
 }

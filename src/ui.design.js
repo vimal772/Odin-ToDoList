@@ -89,6 +89,7 @@ function start() {
 }
 
 export let card2Title;
+
 function acticeClass() {
     const lists = document.querySelectorAll('.project-items');
         lists.forEach((list)=> {
