@@ -78,8 +78,8 @@ function showActiceClass(toDoList,keyArr) {
 }
 
 
+const heading = document.createElement('h1');
 function getCard2Title(title,toDoList,keyArr) {
-    const heading = document.createElement('h1');
     const card2 = document.querySelector('.card-2');
     heading.textContent = `${title} To-Do List`;
     card2.appendChild(heading);
